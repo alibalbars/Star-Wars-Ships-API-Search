@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="filter-form">
+    <form class="filter-form" @submit.prevent="">
       <input
         v-model="query"
         type="text"
@@ -23,11 +23,11 @@ export default {
 
   methods: {
     onQueryChange(event) {
+      this.search();
     },
 
-    search(event) {
+    search() {
       this.$emit("queryChanged", this.query);
-      //   this.$emit("queryOptionChanged", this.queryOption);
     },
   },
 };

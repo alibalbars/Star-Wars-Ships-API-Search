@@ -1,8 +1,8 @@
 <template>
   <div class="ship-card">
-    <p>{{ ship.name }}</p>
-    <p>{{ ship.model }}</p>
-    <p>{{ ship.hyperdrive_rating }}</p>
+    <p><strong>Ship Name: </strong>{{ ship.name }}</p>
+    <p><strong>Ship Model: </strong>{{ ship.model }}</p>
+    <p><strong>Ship HyperDrive Rating: </strong>{{ ship.hyperdrive_rating }}</p>
     
 
   </div>

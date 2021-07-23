@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <p>{{ ship.name }}</p>
-    <p>{{ ship.passengers }}</p>
-    <p>{{ ship.max_atmosphering_speed }}</p>
-    <p>{{ ship.manufacturer }}</p>
-    <p>{{ ship.crew }}</p>
-    <p>{{ ship.cargo_capacity }}</p>
+  <div class="ship-detail">
+    <span><strong>Ship Name: </strong>{{ ship.name }}</span>
+    <span><strong>Passengers: </strong>{{ ship.passengers }}</span>
+    <span><strong>Max Atmosphering Speed: </strong>{{ ship.max_atmosphering_speed }}</span>
+    <span><strong>Manufacturer: </strong>{{ ship.manufacturer }}</span>
+    <span><strong>Crew: </strong>{{ ship.crew }}</span>
+    <span><strong>Cargo Capacity: </strong>{{ ship.cargo_capacity }}</span>
     <GoBackButton></GoBackButton>
   </div>
 </template>
@@ -53,4 +53,11 @@ export default {
 </script>
 
 <style scoped>
+  .ship-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+  }
 </style>

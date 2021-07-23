@@ -9,6 +9,11 @@ export default {};
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'star-wars';
+  src: url('/~@/assets/fonts/starwars/Starjedi.ttf') format('font-type');
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -17,6 +22,7 @@ export default {};
   background-color: #efefef;
   margin-bottom: 20px;
   font-size: 36px;
+  font-family: 'star-wars';
 }
 
 a {
