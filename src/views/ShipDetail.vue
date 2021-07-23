@@ -1,42 +1,56 @@
 <template>
-    <div>
-        {{name}}
-        <!-- {{ ship.passengers }}
-    {{ ship.max_atmosphering_speed }}
-    {{ ship.manufacturer }}
-    {{ ship.crew }}
-    {{ ship.cargo_capacity }} -->
-    </div>
+  <div>
+    <p>{{ ship.name }}</p>
+    <p>{{ ship.passengers }}</p>
+    <p>{{ ship.max_atmosphering_speed }}</p>
+    <p>{{ ship.manufacturer }}</p>
+    <p>{{ ship.crew }}</p>
+    <p>{{ ship.cargo_capacity }}</p>
+    <GoBackButton></GoBackButton>
+  </div>
 </template>
 
 <script>
+import GoBackButton from '@/components/GoBackButton.vue';
 export default {
-    props: {
-        name: {
-            type: String,
-            required: true,
-        }
+  props: {
+    name: {
+      type: String,
+      required: true,
     },
+  },
 
+  components: {
+      GoBackButton,
+  },
 
-    created() {
-        const baseUrl = 'https://swapi.dev/api/starships/?search='
-        fetch(baseUrl + this.formatAsShipName(this.name))
-        .then(response => response.json())
-        .then(data => console.log('aaa', this.filterByName(data.results)))
+  data() {
+    return {
+      ship: {},
+    };
+  },
+
+  created() {
+    const baseUrl = "https://swapi.dev/api/starships/?search=";
+    fetch(baseUrl + this.formatAsShipName(this.name))
+      .then((response) => response.json())
+      .then((data) => (
+          this.ship = this.filterByName(data.results)[0])
+      );
+  },
+
+  methods: {
+    formatAsShipName(str) {
+      return str.split("_").join(" ").toString();
     },
-
-    methods: {
-        formatAsShipName(str) {
-            return str.split('-').join(' ').toString();
-        },
-        filterByName(resultsArray) {
-            return resultsArray.filter((ship) => this.formatAsShipName(ship.name) === this.formatAsShipName(this.name))
-        }
-    }
-}
+    filterByName(resultsArray) {
+      return resultsArray.filter(
+        (ship) => ship.name.toLowerCase() === this.formatAsShipName(this.name)
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

@@ -15,7 +15,7 @@ export default {};
   justify-content: center;
   height: 60px;
   background-color: #efefef;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: 36px;
 }
 
