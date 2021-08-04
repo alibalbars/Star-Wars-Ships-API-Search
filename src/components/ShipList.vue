@@ -17,7 +17,6 @@
 
 <script>
 import ShipListItem from "@/components/ShipListItem.vue";
-import Pagination from "@/components/Pagination.vue";
 
 const baseUrl = "https://swapi.dev/api/starships/?search=";
 export default {
@@ -26,7 +25,6 @@ export default {
   },
   components: {
     ShipListItem,
-    Pagination,
   },
   data() {
     return {
