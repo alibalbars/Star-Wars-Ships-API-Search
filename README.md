@@ -1,4 +1,8 @@
-# starwars-ships5
+# starwars-ships
+
+## Live
+https://star-wars-ships-api-search.vercel.app/
+
 
 ## Project setup
 ```
@@ -10,10 +14,3 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
