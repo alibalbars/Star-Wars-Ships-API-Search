@@ -1,8 +1,7 @@
 <template>
   <div class="card-list-container">
-    <!-- <Pagination></Pagination> -->
 
-    <div v-if="isLoading">Yükleniyor...</div>
+    <div v-if="isLoading" class="loading">Yükleniyor...</div>
     <ul v-else class="card-list">
       <li v-for="ship in ships" :key="ship.name">
         <router-link
@@ -13,13 +12,13 @@
         </router-link>
       </li>
     </ul>
-    <!-- <Pagination></Pagination> -->
   </div>
 </template>
 
 <script>
 import ShipListItem from "@/components/ShipListItem.vue";
 import Pagination from "@/components/Pagination.vue";
+
 const baseUrl = "https://swapi.dev/api/starships/?search=";
 export default {
   props: {
@@ -57,22 +56,17 @@ export default {
     },
 
     getShips(url) {
-      let ships = [];
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          ships = data.results;
           this.ships = data.results;
           console.log(this.ships);
           this.isLoading = false;
-          
         });
     },
 
-    filterByName(results) {
-      return results.filter(
-        (ship) => ship.name.toLowerCase() === this.queryData.query.toLowerCase()
-      );
+    abc: function (value) {
+      alert(value)
     },
   },
 };
@@ -91,5 +85,9 @@ export default {
 .link {
   text-decoration: none;
   color: black;
+}
+
+.loading {
+  margin-top: 20px;
 }
 </style>
